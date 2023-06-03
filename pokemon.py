@@ -10,6 +10,22 @@ with open('pokemon_names.json', 'r') as f:
     pokemon_names = json.load(f)
 
 
+def get_sprite(pokemon: dict) -> str:
+    """
+    Tries to get the animated sprite for a Pokémon if available, otherwise gets the default static sprite.
+    Extension is .gif if animated, .png if static.
+    """
+
+    # The animated sprite can be None, so this statement will return the default sprite in that case.
+    sprite_url = (
+        pokemon['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
+        or
+        pokemon['sprites']['front_default']
+    )
+
+    return sprite_url
+
+
 def get_pokemon(name: Optional[str] = None) -> Optional[dict]:
     """
     Get a Pokémon by name, or a random Pokémon if no argument is passed.
@@ -29,7 +45,9 @@ def get_pokemon(name: Optional[str] = None) -> Optional[dict]:
         elif response.status_code != 200:
             print(f"pokeapi error: {response.status_code}")
 
-        return response.json()
+        pokemon = response.json()
+        pokemon['sprite'] = get_sprite(pokemon)  # We add the sprite for easier access later.
+        return pokemon
 
     # Attempt lookup if a name was supplied.
     else:
@@ -40,7 +58,9 @@ def get_pokemon(name: Optional[str] = None) -> Optional[dict]:
             print(f"pokeapi error: {response.status_code}: {name}")
             return None
 
-        return response.json()
+        pokemon = response.json()
+        pokemon['sprite'] = get_sprite(pokemon)  # We add the sprite for easier access later.
+        return pokemon
 
 
 class TestInputs(unittest.TestCase):

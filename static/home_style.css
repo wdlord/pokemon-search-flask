@@ -12,6 +12,7 @@ body {
     flex-direction: column;
     align-items: center;
     font-family: monospace;
+    justify-content: center;
 }
 
 h1 {
@@ -53,13 +54,20 @@ input[type=submit]:hover {
 }
 
 input[type=text] {
-    margin: 10px;
-    width: 100%;
+    margin: 10px 0;
+    text-align: justify;
+    width: 190px;
+}
+
+.img-div {
+    display: flex;
+    align-items: center;
+    min-height: 250px;
 }
 
 #pokemon-image {
     image-rendering: pixelated;
-    width: 150%;
+    transform: scale(3);
 }
 
 form {

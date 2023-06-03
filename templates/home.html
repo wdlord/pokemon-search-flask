@@ -12,28 +12,32 @@
 </head>
 
 <body>
-    <div>
         <h1> {{ pokemon['name'].title() if pokemon else name_form.name.data.title() }} </h1>
 
         {% if pokemon %}
 
-            <img id= "pokemon-image" src="{{ pokemon['sprites']['front_default'] }}" alt="pokemon['name']">
-            <p> <b>Pokémon Height:</b> {{ pokemon['height'] }} decimetres </p>
-            <p> <b>Pokémon Weight:</b> {{ pokemon['weight'] }} hectograms </p>
-            <p>
-                <b>Types:</b>
-                {% for type in pokemon['types'] %}
-                    {{ type['type']['name'] }}
-                    {{ ", " if not loop.last else "" }}
-                {% endfor %}
-            </p>
+            <div class="img-div">
+                <img id= "pokemon-image" src="{{ pokemon['sprite'] }}" alt="{{ pokemon['name'] }}">
+            </div>
+            <div class="stats">
+                <p> <b>Pokémon Height:</b> {{ pokemon['height'] }} decimetres </p>
+                <p> <b>Pokémon Weight:</b> {{ pokemon['weight'] }} hectograms </p>
+                <p>
+                    <b>Types:</b>
+                    {% for type in pokemon['types'] %}
+                        {{ type['type']['name'] }}
+                        {{ ", " if not loop.last else "" }}
+                    {% endfor %}
+                </p>
+            </div>
 
         {% else %}
 
-            <p> We were unable to find that Pokémon. </p>
+            <div>
+                <p> We were unable to find that Pokémon. </p>
+            </div>
 
         {% endif %}
-    </div>
     <hr>
     <div class="pokemon-form">
         <form method="post">
