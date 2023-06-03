@@ -1,0 +1,72 @@
+
+/* color palette: https://coolors.co/palette/e63946-f1faee-a8dadc-457b9d-1d3557 */
+
+:root {
+    --button-highlight: #457B9D;
+    --button-highlight-hover: #45709D;
+    --button-bg-color-hover: #D9EFF0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: monospace;
+}
+
+h1 {
+    text-align: center;
+    font-family: "VT323", monospace;
+    color: var(--button-highlight);
+    font-size: 3rem;
+}
+
+hr {
+    width: 800px;
+    margin: 30px;
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+.pokemon-form {
+    width: 200px;
+}
+
+input[type=submit] {
+    color: var(--button-highlight);
+    background-color: white;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    border-radius: 3vmin;
+    border: 2px solid var(--button-highlight);
+    width: 90px;
+    height: 30px;
+    transition-duration: 0.3s;
+}
+
+input[type=submit]:hover {
+    background-color: var(--button-bg-color-hover);
+    color: var(--button-highlight-hover);
+    border: 2px solid var(--button-highlight-hover);
+}
+
+input[type=text] {
+    margin: 10px;
+    width: 100%;
+}
+
+#pokemon-image {
+    image-rendering: pixelated;
+    width: 150%;
+}
+
+form {
+    text-align: center;
+}
+
+#form-buttons {
+    display: flex;
+    justify-content: space-between;
+}
