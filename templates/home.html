@@ -12,7 +12,7 @@
 </head>
 
 <body>
-        <h1> {{ pokemon['name'].title() if pokemon else name_form.name.data.title() }} </h1>
+        <h1> {{ pokemon['name'].title() if pokemon else "Error" }} </h1>
 
         {% if pokemon %}
 
