@@ -47,6 +47,7 @@ def get_pokemon(name: Optional[str] = None) -> Optional[dict]:
 
         pokemon = response.json()
         pokemon['sprite'] = get_sprite(pokemon)  # We add the sprite for easier access later.
+        pokemon['type_names'] = [t['type']['name'] for t in pokemon['types']]
         return pokemon
 
     # Attempt lookup if a name was supplied.
@@ -60,6 +61,7 @@ def get_pokemon(name: Optional[str] = None) -> Optional[dict]:
 
         pokemon = response.json()
         pokemon['sprite'] = get_sprite(pokemon)  # We add the sprite for easier access later.
+        pokemon['type_names'] = [t['type']['name'] for t in pokemon['types']]
         return pokemon
 
 

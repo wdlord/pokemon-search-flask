@@ -17,18 +17,16 @@
         {% if pokemon %}
 
             <div class="img-div">
-                <img id= "pokemon-image" src="{{ pokemon['sprite'] }}" alt="{{ pokemon['name'] }}">
+                <img id="pokemon-image" src="{{ pokemon['sprite'] }}" alt="{{ pokemon['name'] }}">
             </div>
             <div class="stats">
-                <p> <b>Pokémon Height:</b> {{ pokemon['height'] }} decimetres </p>
-                <p> <b>Pokémon Weight:</b> {{ pokemon['weight'] }} hectograms </p>
-                <p>
-                    <b>Types:</b>
-                    {% for type in pokemon['types'] %}
-                        {{ type['type']['name'] }}
-                        {{ ", " if not loop.last else "" }}
+                <p id="types">
+                    {% for type in pokemon['type_names'] %}
+                        <img src="/static/types/{{ type.title() }}Type.png" alt="{{ type }} type">
                     {% endfor %}
                 </p>
+                <p> <b>Pokémon Height:</b> {{ pokemon['height'] }} decimetres </p>
+                <p> <b>Pokémon Weight:</b> {{ pokemon['weight'] }} hectograms </p>
             </div>
 
         {% else %}
