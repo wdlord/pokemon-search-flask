@@ -1,22 +1,13 @@
-import flask
 from flask import Flask, render_template, url_for, flash, redirect, request
-
 from flask_wtf import CSRFProtect
-
-# There are several versions of this library, I used this one:
-# https://github.com/helloflask/bootstrap-flask
-from flask_bootstrap import Bootstrap5
-
 from pokemon import get_pokemon
+import random
 
 
 app = Flask(__name__)
 
 # created with secrets.token_hex(16) in separate python console.
 app.config['SECRET_KEY'] = 'b041becfa469cd0787dc7e1cd168d313'
-
-# Bootstrap-Flask requires this line
-bootstrap = Bootstrap5(app)
 
 # Flask-WTF requires this line
 csrf = CSRFProtect(app)
@@ -44,4 +35,4 @@ def home():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=random.randint(2000, 9000))
