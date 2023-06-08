@@ -42,7 +42,7 @@
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
             <label for="pokemon-name">Enter a Pokémon name:</label>
             <br>
-            <input type="text" id="pokemon-name" name="name">
+            <input type="text" id="pokemon-name" name="name" required>
             <br>
             <div id="form-buttons">
                 <input type="submit" value="Search" name="submit">
