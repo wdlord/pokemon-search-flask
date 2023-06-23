@@ -43,7 +43,7 @@ input[type=submit] {
     background-color: white;
     font-family: "Lato", sans-serif;
     font-weight: 700;
-    border-radius: 3vmin;
+    border-radius: 5vmin;
     border: 2px solid var(--button-highlight);
     width: 90px;
     height: 30px;
